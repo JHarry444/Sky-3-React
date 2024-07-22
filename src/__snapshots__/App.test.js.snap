@@ -4,6 +4,7 @@ exports[`app matches snapshot 1`] = `
 <div
   className="App"
 >
+  fdjgdfghdgjdfw
   <header>
     <h1>
       This is a header
@@ -11,7 +12,7 @@ exports[`app matches snapshot 1`] = `
   </header>
   <p>
     My name is 
-    JH
+    Jordan
   </p>
   <p>
     I am 
@@ -19,8 +20,44 @@ exports[`app matches snapshot 1`] = `
      years old
   </p>
   <p>
-    And I am a 
-    Weapon
+    I am a 
+    Software
+     trainer
+  </p>
+  <p>
+    And I live in 
+    Staffordshire
+  </p>
+  <p>
+    My name is 
+    Piers
+  </p>
+  <p>
+    I am 
+    28
+     years old
+  </p>
+  <p>
+    I am a 
+    Devops
+     trainer
+  </p>
+  <p>
+    And I live in 
+    Derby
+  </p>
+  <p>
+    My name is 
+    243
+  </p>
+  <p>
+    I am 
+    26
+     years old
+  </p>
+  <p>
+    I am a 
+     trainer
   </p>
 </div>
 `;
