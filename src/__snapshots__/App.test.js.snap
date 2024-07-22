@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app matches snapshot 1`] = `
+<div
+  className="App"
+>
+  <header>
+    <h1>
+      This is a header
+    </h1>
+  </header>
+  <p>
+    My name is 
+    JH
+  </p>
+  <p>
+    I am 
+    30
+     years old
+  </p>
+  <p>
+    And I am a 
+    Weapon
+  </p>
+</div>
+`;
