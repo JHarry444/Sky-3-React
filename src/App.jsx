@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import LoggedIn from './components/LoggedIn';
 import Trainer from './components/Trainer';
@@ -21,9 +22,7 @@ function App() {
           location={location} />))
       }
 
-      {/* <Trainer name="Jordan" age={30} specialism="Software" location="Staffordshire" />
-      <Trainer name="Piers" age={28} specialism="Devops" location="Derby" />
-      <Trainer name={"JB"} age={26} /> */}
+      <Footer />
 
     </div>
   );
