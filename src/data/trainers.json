@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Jordan",
+        "specialism": "Software",
+        "age": 30,
+        "location": "Staffordshire"
+    },
+    {
+        "name": "Piers",
+        "specialism": "DevOps",
+        "age": 26
+    },
+    {
+        "name": "JB",
+        "age": 26
+    }
+]
