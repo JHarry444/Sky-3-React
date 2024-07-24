@@ -1,6 +1,9 @@
-import { useState } from "react";
+import axios from "axios";
+import { useRef, useState } from "react";
 
 const TrainerForm = ({ setTrainers }) => {
+
+    const nameRef = useRef();
 
     const [name, setName] = useState("");
     const [age, setAge] = useState(21);
@@ -10,11 +13,18 @@ const TrainerForm = ({ setTrainers }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setTrainers(trainers => [{ name, age, specialism, location }, ...trainers]);
-        setName("");
-        setAge(21);
-        setSpecialism("");
-        setLocation("");
+        axios.post("http://localhost:8081/trainers", { name, age, specialism, location })
+            .then(res => {
+                console.log("RES:", res);
+                setTrainers(trainers => [res.data, ...trainers]);
+                setName("");
+                setAge(21);
+                setSpecialism("");
+                setLocation("");
+                nameRef.current.focus();
+
+            })
+            .catch(err => console.error(err));
     }
 
     return (
@@ -22,7 +32,7 @@ const TrainerForm = ({ setTrainers }) => {
             <h2>Trainer Form</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nameInput">Name</label>
-                <input type="text" name="nameInput" id="nameInput" value={name} onChange={(event) => setName(event.target.value)} />
+                <input ref={nameRef} type="text" name="nameInput" id="nameInput" value={name} onChange={(event) => setName(event.target.value)} />
                 <br />
                 <label htmlFor="ageInput">Age</label>
                 <input type="number" min={21} max={100} step={1} name="ageInput" id="ageInput" value={age} onChange={(event) => setAge(parseInt(event.target.value))} />
