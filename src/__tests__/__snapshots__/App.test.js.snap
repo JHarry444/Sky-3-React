@@ -4,17 +4,102 @@ exports[`app matches snapshot 1`] = `
 <div
   className="App"
 >
-  <header>
-    <h1>
-      This is a header
-    </h1>
-  </header>
-  <button>
-    Log Out
-  </button>
-  <button>
-    Log In
-  </button>
+  <h2>
+    Converter
+  </h2>
+  <label
+    htmlFor="milesInput"
+  >
+    Miles
+  </label>
+  <input
+    id="milesInput"
+    min={0}
+    name="milesInput"
+    onChange={[Function]}
+    type="number"
+    value={0}
+  />
+  <br />
+  <label
+    htmlFor="kmInput"
+  >
+    Kilometres
+  </label>
+  <input
+    id="kmInput"
+    min={0}
+    name="kmInput"
+    onChange={[Function]}
+    type="number"
+    value={0}
+  />
+  <h2>
+    Trainer Form
+  </h2>
+  <form>
+    <label
+      htmlFor="nameInput"
+    >
+      Name
+    </label>
+    <input
+      id="nameInput"
+      name="nameInput"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <br />
+    <label
+      htmlFor="ageInput"
+    >
+      Age
+    </label>
+    <input
+      id="ageInput"
+      max={100}
+      min={21}
+      name="ageInput"
+      onChange={[Function]}
+      step={1}
+      type="number"
+      value={21}
+    />
+    <br />
+    <label
+      htmlFor="specialismInput"
+    >
+      Specialism
+    </label>
+    <input
+      id="specialismInput"
+      name="specialismInput"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <br />
+    <label
+      htmlFor="locationInput"
+    >
+      Location
+    </label>
+    <input
+      id="locationInput"
+      name="locationInput"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <br />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
   <p>
     My name is 
     Jordan
