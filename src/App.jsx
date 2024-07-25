@@ -9,34 +9,45 @@ import Trainer from './components/Trainer';
 import TrainerContainer from './components/TrainerContainer';
 import TrainerForm from './components/TrainerForm';
 import axios from 'axios';
-
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 function App() {
 
   const [trainers, setTrainers] = useState([]);
 
+  const getTrainers = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:8081/trainers");
+      setTrainers(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+
   // only run the request on LOAD
   // fancy onload
   useEffect(() => {
-    axios.get("http://localhost:8081/trainers")
-      .then(res => setTrainers(res.data))
-      .catch(err => console.error(err));
+    getTrainers();
   }, []);
 
 
 
   return (
-    <div className="App">
-      {/* <Header /> */}
-      {/* <LoggedIn loggedIn /> */}
-      {/* <LoggedIn /> */}
-      {/* <Counter /> */}
-      <Converter />
-      <TrainerForm setTrainers={setTrainers} />
-      <TrainerContainer trainers={trainers} />
+    <Router>
+      {/* Router -> enables routing */}
+      <Header />
+      {/* Routes groups routes together */}
+      <Routes>
+        {/* Route will render the component if the path matches current location */}
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/converter" element={<Converter />} />
+        <Route path="/trainer/get" element={<TrainerContainer trainers={trainers} />} />
+        <Route path="/trainer/create" element={<TrainerForm getTrainers={getTrainers} />} />
+      </Routes>
 
       <Footer />
 
-    </div>
+    </Router>
   );
 }
 

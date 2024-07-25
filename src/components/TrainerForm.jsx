@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 
-const TrainerForm = ({ setTrainers }) => {
+const TrainerForm = ({ getTrainers }) => {
 
     const nameRef = useRef();
 
@@ -16,7 +16,7 @@ const TrainerForm = ({ setTrainers }) => {
         axios.post("http://localhost:8081/trainers", { name, age, specialism, location })
             .then(res => {
                 console.log("RES:", res);
-                setTrainers(trainers => [res.data, ...trainers]);
+                getTrainers();
                 setName("");
                 setAge(21);
                 setSpecialism("");
