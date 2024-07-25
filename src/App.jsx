@@ -9,7 +9,7 @@ import TrainerForm from './components/TrainerForm';
 import axios from 'axios';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import TrainerById from './components/TrainerById';
-// import MyContext from "./context/MyContext";
+import MyContext from "./context/MyContext";
 
 function App() {
 
@@ -32,25 +32,31 @@ function App() {
   }, []);
 
 
+  const [value, setValue] = useState("bloop");
 
   return (
-    <Router>
-      {/* Router -> enables routing */}
-      <Header />
-      {/* Routes groups routes together */}
-      <Routes>
-        {/* Route will render the component if the path matches current location */}
-        <Route path="/counter" element={<Counter />} />
-        <Route path="/converter" element={<Converter />} />
-        <Route path="/trainer/get" element={<TrainerContainer trainers={trainers} />} />
-        <Route path="/trainer/create" element={<TrainerForm getTrainers={getTrainers} />} />
-        <Route path="/trainer/get/:id" element={<TrainerById />} />
+    <MyContext.Provider value={{
+      loggedIn: true,
+      weapon: false
+    }}>
+      <Router>
+        {/* Router -> enables routing */}
+        <Header />
+        {/* Routes groups routes together */}
+        <Routes>
+          {/* Route will render the component if the path matches current location */}
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/converter" element={<Converter />} />
+          <Route path="/trainer/get" element={<TrainerContainer trainers={trainers} />} />
+          <Route path="/trainer/create" element={<TrainerForm getTrainers={getTrainers} />} />
+          <Route path="/trainer/get/:id" element={<TrainerById />} />
 
-      </Routes>
+        </Routes>
 
-      <Footer />
+        <Footer />
 
-    </Router>
+      </Router>
+    </MyContext.Provider>
   );
 }
 
