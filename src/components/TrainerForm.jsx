@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TrainerForm = ({ getTrainers }) => {
+
+    const navigate = useNavigate();
 
     const nameRef = useRef();
 
@@ -13,6 +16,7 @@ const TrainerForm = ({ getTrainers }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+
         axios.post("http://localhost:8081/trainers", { name, age, specialism, location })
             .then(res => {
                 console.log("RES:", res);
@@ -21,7 +25,8 @@ const TrainerForm = ({ getTrainers }) => {
                 setAge(21);
                 setSpecialism("");
                 setLocation("");
-                nameRef.current.focus();
+
+                navigate("/trainer/get");
 
             })
             .catch(err => console.error(err));

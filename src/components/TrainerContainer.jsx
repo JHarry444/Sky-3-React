@@ -5,8 +5,9 @@ const TrainerContainer = ({ trainers }) => {
     return (
         <>
             {
-                trainers.map(({ name, age, specialism, location }) => (<Trainer
+                trainers.map(({ id, name, age, specialism, location }) => (<Trainer
                     key={uuidv4()}
+                    id={id}
                     name={name}
                     age={age}
                     specialism={specialism}

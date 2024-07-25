@@ -4,12 +4,13 @@ import Converter from './components/Converter';
 import Counter from './components/Counter';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import LoggedIn from './components/LoggedIn';
-import Trainer from './components/Trainer';
 import TrainerContainer from './components/TrainerContainer';
 import TrainerForm from './components/TrainerForm';
 import axios from 'axios';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import TrainerById from './components/TrainerById';
+// import MyContext from "./context/MyContext";
+
 function App() {
 
   const [trainers, setTrainers] = useState([]);
@@ -43,6 +44,8 @@ function App() {
         <Route path="/converter" element={<Converter />} />
         <Route path="/trainer/get" element={<TrainerContainer trainers={trainers} />} />
         <Route path="/trainer/create" element={<TrainerForm getTrainers={getTrainers} />} />
+        <Route path="/trainer/get/:id" element={<TrainerById />} />
+
       </Routes>
 
       <Footer />
